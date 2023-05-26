@@ -17,17 +17,17 @@ export class PostsController {
     return this.postsService.findOne(+id);
   }
 
-  @Post()
+  @Post('/create')
   async create(@Body() createPostDto: CreatePostDto) {
     return this.postsService.create(createPostDto);
   }
 
-  @Put(':id')
+  @Put('/update/:id')
   async update(@Param('id') id: number, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(+id, updatePostDto);
   }
 
-  @Delete(':id')
+  @Delete('/delete/:id')
   async remove(@Param('id') id: number) {
     return this.postsService.remove(+id);
   }
